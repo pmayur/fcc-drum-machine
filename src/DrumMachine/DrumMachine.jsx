@@ -1,14 +1,49 @@
 import React from "react";
 
-import './DrumMachine.css'
+import "./DrumMachine.css";
+
+import DrumPad from "../DrumPad/DrumPad.jsx";
 
 class DrumMachine extends React.Component {
+    constructor(props) {
+        super(props);
 
-    render(){
-        return(
+        this.state = {
+            sounds: {
+                Q:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/73[kb]8bitkit-hit-2.wav.mp3",
+                W:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/10[kb]8bitkit-hit-3.wav.mp3",
+                E:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/12[kb]8bitkit-hit-4.wav.mp3",
+
+                A:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/6[kb]8bitkit-hit-5.wav.mp3",
+                S:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/6[kb]8bitkit-hit-6.wav.mp3",
+                D:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/16[kb]8bitkit-hit-7.wav.mp3",
+
+                Z:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/12[kb]8bitkit-hit-8.wav.mp3",
+                X:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/6[kb]8bitkit-hit-9.wav.mp3",
+                C:
+                    "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/8%20Bit%20Videogame%20Kit/8[kb]8bitkit-hit-10.wav.mp3",
+            },
+        };
+    }
+
+    render() {
+        const KEYS = Object.keys(this.state.sounds);
+        let drumPads = KEYS.map((key) => {
+            return <DrumPad key={key} idName={key} />;
+        });
+
+        return (
             <div id="drum-machine">
-                <div id="display">
-                </div>
+                <div id="display">Playing</div>
+                <div id="drum-pads">{drumPads}</div>
             </div>
         );
     }

@@ -5,3 +5,14 @@
     padding: 15px;
     background-color: cyan;
 }
+
+#display {
+    height: 8%;
+}
+
+#drum-pads {
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
